@@ -238,7 +238,7 @@ class Tournament(commands.Cog):
         bot_prompt_message = await channel.send(embed=embed, file=discord.File('./static/images/robin.png', filename='robin.png'))
         for emote in self.tournament_reactions:
             await bot_prompt_message.add_reaction(emote)
-        if not await self.user_reaction_on_message(self.tournament_reactions[1:], [author.id], [bot_prompt_message], delete_on_timeout=True):
+        if not await self.user_reaction_on_message(self.tournament_reactions[1:], [author.id], [bot_prompt_message], delete_on_timeout=False):
             return
 
         bot_prompt_message = await channel.fetch_message(bot_prompt_message.id)
